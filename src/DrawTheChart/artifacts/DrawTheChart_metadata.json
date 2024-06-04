@@ -1,0 +1,2095 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "initialOwner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "ClaimFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ClaimTransferFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint128",
+						"name": "amountRequested",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "amountAvailable",
+						"type": "uint128"
+					}
+				],
+				"name": "ContractBalanceTooLow",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "txOrigin",
+						"type": "address"
+					}
+				],
+				"name": "CreatorCannotEnterGame",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountSent",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountRequired",
+						"type": "uint256"
+					}
+				],
+				"name": "EntryFeeNotMet",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "GameAlreadyEnded",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "gameIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "GameAlreadyEntered",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "block",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "GameAlreadyStarted",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "GameNotEnded",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "currentBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gameEndBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "GameNotFinished",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "GameNotStarted",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "msgSender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "txOrigin",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "InvalidCaller",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidCreator",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidEndBlock",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidFeeAmount",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "index",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"name": "InvalidGameIndex",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidIndicesLength",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidSender",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidStartBlock",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint128",
+						"name": "amount",
+						"type": "uint128"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "leaf",
+						"type": "bytes32"
+					}
+				],
+				"name": "LeafContextMismatch",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MerkleRootPreviouslySet",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoAttachedEth",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoDepositFound",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NonProtocolClaim",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "OwnableInvalidOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "OwnableUnauthorizedAccount",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ProofVerificationFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint128",
+						"name": "amountClaimed",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint256",
+						"name": "targetBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "ProtocolFeeClaimFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ReentrancyGuardReentrantCall",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "UnableToClaimCreatorFees",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "reason",
+						"type": "string"
+					}
+				],
+				"name": "ZeroAddressTransfer",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint128",
+						"name": "amountWithdrawn",
+						"type": "uint128"
+					}
+				],
+				"name": "CreatorFeeClaimed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint128",
+						"name": "fee",
+						"type": "uint128"
+					}
+				],
+				"name": "CreatorFeeTaken",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint128",
+						"name": "previousFee",
+						"type": "uint128"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint128",
+						"name": "newFee",
+						"type": "uint128"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint128",
+						"name": "game",
+						"type": "uint128"
+					}
+				],
+				"name": "EntryFeeChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "fee",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint128",
+						"name": "entryFee",
+						"type": "uint128"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "createdBlock",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "startBlock",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "endBlock",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "pool",
+						"type": "address"
+					}
+				],
+				"name": "GameCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "msgSender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint128",
+						"name": "packedEntryIndex",
+						"type": "uint128"
+					}
+				],
+				"name": "GameEntered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "gameRoot",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "gameIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "GamePayoutClaimInitialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "msgSender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "predictedPricesHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "Prediction",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint128",
+						"name": "fee",
+						"type": "uint128"
+					}
+				],
+				"name": "ProtocolFeeTaken",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sponsor",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint128",
+						"name": "amountDeposited",
+						"type": "uint128"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint128",
+						"name": "totalDeposits",
+						"type": "uint128"
+					}
+				],
+				"name": "Sponsorship",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint128",
+						"name": "amountWon",
+						"type": "uint128"
+					}
+				],
+				"name": "WinnerPayout",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint128",
+								"name": "startBlock",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint128",
+								"name": "endBlock",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint128",
+								"name": "entryFee",
+								"type": "uint128"
+							},
+							{
+								"internalType": "address",
+								"name": "pool",
+								"type": "address"
+							},
+							{
+								"internalType": "uint8",
+								"name": "fee",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "split",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct DtcGameManager.BatchCreateGameArgs[]",
+						"name": "games",
+						"type": "tuple[]"
+					}
+				],
+				"name": "batchCreateGame",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint64",
+						"name": "gamesCreated",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "checkGameStatus",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "enabled",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "participants",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint128",
+						"name": "totalDeposits",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endBlock",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "claimCreatorFees",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint128",
+						"name": "amount",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					}
+				],
+				"name": "claimProtocolFees",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint128",
+						"name": "amountClaimed",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64[]",
+						"name": "indicies",
+						"type": "uint64[]"
+					},
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					}
+				],
+				"name": "claimProtocolFeesMultiple",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint128",
+						"name": "amountClaimed",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "proof",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "uint128",
+						"name": "amount",
+						"type": "uint128"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "leaf",
+						"type": "bytes32"
+					}
+				],
+				"name": "claimWinnings",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint128",
+						"name": "claimedAmount",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint128",
+						"name": "startBlock",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "endBlock",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "entryFee",
+						"type": "uint128"
+					},
+					{
+						"internalType": "address",
+						"name": "pool",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "fee",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "split",
+						"type": "bool"
+					}
+				],
+				"name": "createGame",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "game",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "endGame",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "predictedPricesHash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "ipfsCid",
+						"type": "bytes32"
+					}
+				],
+				"name": "enterGame",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "game",
+						"type": "uint64"
+					},
+					{
+						"internalType": "bytes",
+						"name": "packedEntry",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "entriesIndex",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "entries",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "games",
+				"outputs": [
+					{
+						"internalType": "uint128",
+						"name": "startBlock",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "endBlock",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "protocolBalance",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "creatorBalance",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "totalDeposits",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "entryFee",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint8",
+						"name": "fee",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "gameEnded",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "pool",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "protocolFeeSplit",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "claimMerkleRoot",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "index",
+						"type": "uint64"
+					}
+				],
+				"name": "getCreator",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "index",
+						"type": "uint64"
+					}
+				],
+				"name": "getCreatorBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "getEntriesForGame",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint128",
+								"name": "depositAmount",
+								"type": "uint128"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "predictedPrice",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "address",
+								"name": "entrant",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "ipfsCid",
+								"type": "bytes32"
+							}
+						],
+						"internalType": "struct DtcGameManager.Entry[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "getEntryFeeForGame",
+				"outputs": [
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "index",
+						"type": "uint64"
+					}
+				],
+				"name": "getGame",
+				"outputs": [
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "index",
+						"type": "uint64"
+					}
+				],
+				"name": "getGameExtended",
+				"outputs": [
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getGamesLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint256",
+						"name": "entryIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "getIpfsCid",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "ipfsCid",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "getNumberOfPlayers",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "players",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "getProtocolFeeForGame",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "getTotalDepositsForGame",
+				"outputs": [
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "isGameEndable",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "isGameEnded",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "ended",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "merkleRoot",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "setMerkleRootForGame",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "gameIndex",
+						"type": "uint64"
+					}
+				],
+				"name": "sponsorGame",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_packed",
+						"type": "bytes"
+					}
+				],
+				"name": "unpackEntry",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "entrant",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "predictedPricesHash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint128",
+						"name": "depositAmount",
+						"type": "uint128"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "ipfsCid",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "proof",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "merkleRoot",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "leaf",
+						"type": "bytes32"
+					}
+				],
+				"name": "verifyProof",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"errors": {
+				"ClaimFailed()": [
+					{
+						"details": "Throws an error when a claim operation fails."
+					}
+				],
+				"ClaimTransferFailed()": [
+					{
+						"details": "Throws an error when a claim transfer fails."
+					}
+				],
+				"ContractBalanceTooLow(uint128,uint128)": [
+					{
+						"details": "Throws an error when the contract balance is too low to fulfill a request.",
+						"params": {
+							"amountAvailable": "The available balance.",
+							"amountRequested": "The requested amount."
+						}
+					}
+				],
+				"CreatorCannotEnterGame(address,address,address)": [
+					{
+						"details": "Throws an error when a creator of a game tries to enter a game they created."
+					}
+				],
+				"EntryFeeNotMet(uint256,uint256)": [
+					{
+						"details": "Throws an error when the entry fee is not met.",
+						"params": {
+							"amountRequired": "The required entry fee amount.",
+							"amountSent": "The amount sent by the user."
+						}
+					}
+				],
+				"GameAlreadyEnded()": [
+					{
+						"details": "Throws an error when a game has already ended."
+					}
+				],
+				"GameAlreadyEntered(uint256)": [
+					{
+						"details": "Throws an error when a user has already entered a game.",
+						"params": {
+							"gameIndex": "The index of the game."
+						}
+					}
+				],
+				"GameAlreadyStarted(uint256,uint256)": [
+					{
+						"details": "Throws an error when a game has already started.",
+						"params": {
+							"block": "The block number when the game started.",
+							"currentBlock": "The current block number."
+						}
+					}
+				],
+				"GameNotEnded()": [
+					{
+						"details": "Throws an error when a game is not ended."
+					}
+				],
+				"GameNotFinished(uint256,uint256)": [
+					{
+						"details": "Throws an error when a game has not finished.",
+						"params": {
+							"currentBlock": "The current block number.",
+							"gameEndBlock": "The block number when the game ends."
+						}
+					}
+				],
+				"GameNotStarted()": [
+					{
+						"details": "Throws an error when a game has not started."
+					}
+				],
+				"InvalidCaller(address,address,address)": [
+					{
+						"details": "Throws an error when an invalid caller is detected for batchCreateGame."
+					}
+				],
+				"InvalidCreator()": [
+					{
+						"details": "Throws an error when an invalid creator is detected."
+					}
+				],
+				"InvalidEndBlock()": [
+					{
+						"details": "Throws an error when the end block is invalid."
+					}
+				],
+				"InvalidFeeAmount()": [
+					{
+						"details": "Throws an error when the fee amount is invalid."
+					}
+				],
+				"InvalidGameIndex(uint64,uint256)": [
+					{
+						"details": "Throws an error when an invalid game index is provided.",
+						"params": {
+							"index": "The invalid game index.",
+							"length": "The length of the game-related data structure."
+						}
+					}
+				],
+				"InvalidIndicesLength()": [
+					{
+						"details": "Throws an error when the provided indices length is invalid."
+					}
+				],
+				"InvalidSender()": [
+					{
+						"details": "Throws an error when an invalid sender is detected."
+					}
+				],
+				"InvalidStartBlock()": [
+					{
+						"details": "Throws an error when the start block is invalid."
+					}
+				],
+				"LeafContextMismatch(address,uint128,bytes32)": [
+					{
+						"details": "Throws an error when there is a mismatch in leaf context.",
+						"params": {
+							"amount": "The amount.",
+							"leaf": "The leaf context.",
+							"sender": "The address of the sender."
+						}
+					}
+				],
+				"MerkleRootPreviouslySet()": [
+					{
+						"details": "Throws an error when a Merkle root has already been set for a game."
+					}
+				],
+				"NoAttachedEth()": [
+					{
+						"details": "Throws an error when an Ethereum transaction lacks attached Ether."
+					}
+				],
+				"NoDepositFound()": [
+					{
+						"details": "Throws an error when no deposit is found."
+					}
+				],
+				"NonProtocolClaim()": [
+					{
+						"details": "Throws an error when a non-protocol claim is attempted."
+					}
+				],
+				"OwnableInvalidOwner(address)": [
+					{
+						"details": "The owner is not a valid owner account. (eg. `address(0)`)"
+					}
+				],
+				"OwnableUnauthorizedAccount(address)": [
+					{
+						"details": "The caller account is not authorized to perform an operation."
+					}
+				],
+				"ProofVerificationFailed()": [
+					{
+						"details": "Throws an error when proof verification fails."
+					}
+				],
+				"ProtocolFeeClaimFailed(bool,uint128,uint256)": [
+					{
+						"details": "Throws an error when a protocol fee claim operation fails.",
+						"params": {
+							"amountClaimed": "The claimed amount.",
+							"success": "Whether the claim was successful.",
+							"targetBalance": "The target balance."
+						}
+					}
+				],
+				"ReentrancyGuardReentrantCall()": [
+					{
+						"details": "Unauthorized reentrant call."
+					}
+				],
+				"UnableToClaimCreatorFees()": [
+					{
+						"details": "Throws an error when claiming creator fees is unsuccessful."
+					}
+				],
+				"ZeroAddressTransfer(string)": [
+					{
+						"details": "Throws an error when a zero address is involved in a transfer.",
+						"params": {
+							"reason": "The reason for the zero address transfer error."
+						}
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {
+				"checkGameStatus(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game to check"
+					},
+					"returns": {
+						"enabled": "The status of the game (true if ended)",
+						"endBlock": "The end block of the game",
+						"participants": "The number of participants in the game",
+						"startBlock": "The start block of the game",
+						"totalDeposits": "The total amount deposited in the game"
+					}
+				},
+				"claimCreatorFees(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game to claim fees from"
+					},
+					"returns": {
+						"success": ", amount, the claim success and amount claimed"
+					}
+				},
+				"claimProtocolFees(uint64,address)": {
+					"params": {
+						"gameIndex": "The index of the game to claim fees from",
+						"target": "The address to send fees to"
+					},
+					"returns": {
+						"success": ", amountClaimed, the claim success and amount claimed"
+					}
+				},
+				"claimProtocolFeesMultiple(uint64[],address)": {
+					"params": {
+						"indicies": "An array of game indicies to claim fees from",
+						"target": "The address to send fees to"
+					},
+					"returns": {
+						"success": ", amountClaimed, the claim success and amount claimed"
+					}
+				},
+				"claimWinnings(uint64,bytes32[],uint128,bytes32)": {
+					"params": {
+						"amount": "The amount to claim",
+						"gameIndex": "The index of the game to claim winnings from",
+						"leaf": "The leaf to verify for the claim",
+						"proof": "An array of bytes32 values forming the Merkle proof"
+					},
+					"returns": {
+						"success": "True if the claim was successful, otherwise false, claimedAmount"
+					}
+				},
+				"createGame(uint128,uint128,uint128,address,uint8,bool)": {
+					"params": {
+						"endBlock": "The block number when the game will end",
+						"entryFee": "The fee required to enter the game",
+						"fee": "The fee percentage for the protocol",
+						"pool": "The uniswap pool involved in the game",
+						"split": "Enable a protocol fee split for the creator of the game if the creator is not the owner of the contract",
+						"startBlock": "The block number when the game will start"
+					},
+					"returns": {
+						"game": "The index of the newly created game"
+					}
+				},
+				"endGame(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game to end"
+					},
+					"returns": {
+						"success": "= True if the game was successfully ended"
+					}
+				},
+				"enterGame(uint64,bytes32,bytes32)": {
+					"params": {
+						"gameIndex": "The index of the game to enter",
+						"predictedPricesHash": "The hash of the predicted prices for the game. keccak256(predictedPrices.map(() => {keccak256(abi.encode(price,timestamp))})"
+					},
+					"returns": {
+						"game": ", entry , entry index : The index of the game entered, packed data, and the new total entries count"
+					}
+				},
+				"getCreator(uint64)": {
+					"params": {
+						"index": "The index of the game."
+					},
+					"returns": {
+						"creator": ", The creator address for the game"
+					}
+				},
+				"getCreatorBalance(uint64)": {
+					"params": {
+						"index": "The index of the game."
+					},
+					"returns": {
+						"balance": ", the creatorsFeeBalance"
+					}
+				},
+				"getEntryFeeForGame(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game."
+					},
+					"returns": {
+						"_0": "The entry fee for the game."
+					}
+				},
+				"getGame(uint64)": {
+					"params": {
+						"index": "The index of the game."
+					},
+					"returns": {
+						"_0": "A tuple containing entry fee, end block, game ended status, and total deposits."
+					}
+				},
+				"getGameExtended(uint64)": {
+					"params": {
+						"index": "The index of the game."
+					},
+					"returns": {
+						"_0": "A tuple containing entry fee, end block, game ended status, and total deposits."
+					}
+				},
+				"getGamesLength()": {
+					"returns": {
+						"_0": "The length of the games array."
+					}
+				},
+				"getIpfsCid(uint64,uint256)": {
+					"params": {
+						"gameIndex": "The index of the game to check"
+					},
+					"returns": {
+						"ipfsCid": "if an entry exists"
+					}
+				},
+				"getNumberOfPlayers(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game."
+					},
+					"returns": {
+						"players": "The number of players in the game."
+					}
+				},
+				"getProtocolFeeForGame(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game."
+					},
+					"returns": {
+						"_0": "The entry fee for the game."
+					}
+				},
+				"getTotalDepositsForGame(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game."
+					},
+					"returns": {
+						"_0": "The total amount deposited for the game."
+					}
+				},
+				"isGameEndable(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game to check"
+					},
+					"returns": {
+						"_0": "True if the game can be ended, otherwise false"
+					}
+				},
+				"isGameEnded(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game."
+					},
+					"returns": {
+						"ended": "= True if the game has ended, false otherwise."
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+				},
+				"setMerkleRootForGame(bytes32,uint64)": {
+					"params": {
+						"gameIndex": "The index of the game to update",
+						"merkleRoot": "The new Merkle root for the game"
+					}
+				},
+				"sponsorGame(uint64)": {
+					"params": {
+						"gameIndex": "The index of the game to end"
+					},
+					"returns": {
+						"success": "= True if the sponsorship amount was successfully deposited"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"unpackEntry(bytes)": {
+					"details": "This function takes in a packed bytes memory object and unpacks it into individual variables.",
+					"params": {
+						"_packed": "The packed bytes data to be unpacked."
+					},
+					"returns": {
+						"entrant": "The address of the entrant, predictedPricesHash The hashed price predictions, depositAmount The amount of deposit, ipfsCid The CID of the predicted prices for a user."
+					}
+				},
+				"verifyProof(bytes32[],bytes32,bytes32)": {
+					"params": {
+						"leaf": "The leaf to verify",
+						"merkleRoot": "The root of the Merkle tree",
+						"proof": "An array of bytes32 values forming the Merkle proof"
+					},
+					"returns": {
+						"_0": "True if the proof is valid, otherwise false"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"CreatorFeeClaimed(uint64,address,uint128)": {
+					"notice": "Event to log when a creator claims fees from a game"
+				},
+				"CreatorFeeTaken(address,uint128)": {
+					"notice": "Event to log the creator fee"
+				},
+				"EntryFeeChanged(uint128,uint128,uint128)": {
+					"notice": "Event to log the change in entry fee for a game"
+				},
+				"GameCreated(uint64,uint8,uint128,uint256,uint256,uint256,address,address)": {
+					"notice": "Event to log the creation of a game"
+				},
+				"GameEntered(address,uint128)": {
+					"notice": "Event to log game entry"
+				},
+				"GamePayoutClaimInitialized(bytes32,uint256)": {
+					"notice": "Event to log the initialization of a game payout claim"
+				},
+				"Prediction(address,bytes32)": {
+					"notice": "Event to log the prediction hash and entrant"
+				},
+				"ProtocolFeeTaken(uint128)": {
+					"notice": "Event to log the protocol fee"
+				},
+				"Sponsorship(address,uint128,uint128)": {
+					"notice": "Event to log the details of a sponsorship of a game"
+				},
+				"WinnerPayout(address,uint128)": {
+					"notice": "Event to log the payout to the winner"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"checkGameStatus(uint64)": {
+					"notice": "Check the status of a game"
+				},
+				"claimCreatorFees(uint64)": {
+					"notice": "Claims fees for the creator of a game"
+				},
+				"claimProtocolFees(uint64,address)": {
+					"notice": "Claims fees for the protocol"
+				},
+				"claimProtocolFeesMultiple(uint64[],address)": {
+					"notice": "Claims fees for the protocol"
+				},
+				"claimWinnings(uint64,bytes32[],uint128,bytes32)": {
+					"notice": "Claim the winnings for a game"
+				},
+				"createGame(uint128,uint128,uint128,address,uint8,bool)": {
+					"notice": "Create a new game with the specified parameters"
+				},
+				"endGame(uint64)": {
+					"notice": "End a game"
+				},
+				"enterGame(uint64,bytes32,bytes32)": {
+					"notice": "Enter an existing game"
+				},
+				"entries(uint256)": {
+					"notice": "Mapping to store entries in packed format"
+				},
+				"getCreator(uint64)": {
+					"notice": "Fetches creator of a game."
+				},
+				"getCreatorBalance(uint64)": {
+					"notice": "Fetches creator of a game."
+				},
+				"getEntryFeeForGame(uint64)": {
+					"notice": "Fetches the entry fee for a specific game."
+				},
+				"getGame(uint64)": {
+					"notice": "Fetches details of a game."
+				},
+				"getGameExtended(uint64)": {
+					"notice": "Fetches details of a game."
+				},
+				"getGamesLength()": {
+					"notice": "Returns the total number of games created."
+				},
+				"getIpfsCid(uint64,uint256)": {
+					"notice": "Get the ipfs cid of the callers entry"
+				},
+				"getNumberOfPlayers(uint64)": {
+					"notice": "Fetches the number of players in a game."
+				},
+				"getProtocolFeeForGame(uint64)": {
+					"notice": "Fetches the protocol fee for a specific game."
+				},
+				"getTotalDepositsForGame(uint64)": {
+					"notice": "Fetches the total deposits for a specific game."
+				},
+				"isGameEndable(uint64)": {
+					"notice": "Check if the game can be ended"
+				},
+				"isGameEnded(uint64)": {
+					"notice": "Checks if a game has ended."
+				},
+				"setMerkleRootForGame(bytes32,uint64)": {
+					"notice": "Set the Merkle root for a game's claims"
+				},
+				"sponsorGame(uint64)": {
+					"notice": "Sponsor a game with funds without an entry"
+				},
+				"unpackEntry(bytes)": {
+					"notice": "Unpack a bytes value into an address, a bytes32 value, and a uint256."
+				},
+				"verifyProof(bytes32[],bytes32,bytes32)": {
+					"notice": "Verifies the Merkle proof for a leaf"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/src/drawTheChart/DrawTheChart.sol": "DrawTheChart"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [
+			":@DrawTheChart/=contracts/src/DrawTheChart/",
+			":@WtchTwr/=contracts/src/WatchTower/",
+			":@WtchTwrDefi/=contracts/src/DefiUtils/",
+			":@WtchTwrTesting/=contracts/test/drawTheChart/",
+			":ds-test/=lib/forge-std/lib/ds-test/src/",
+			":forge-std/=lib/forge-std/src/",
+			":murky/=contracts/lib/murky/",
+			":openzeppelin-contracts/=contracts/lib/openzeppelin-contracts/"
+		]
+	},
+	"sources": {
+		"contracts/lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
+			"keccak256": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6",
+				"dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a"
+			]
+		},
+		"contracts/lib/openzeppelin-contracts/contracts/utils/Context.sol": {
+			"keccak256": "0x75a4ee64c68dbd5f38bddd06e664a64c8271b4caa554fb6f0607dfd672bb4bf3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0c4e6cb30d3601e2f7af5af09e265508147cb275a8dcd99d6f7363645cc56867",
+				"dweb:/ipfs/QmNgFkoXNWoUbAyw71rr1sKQ95Rj2GfvYiWg79xEYDn2NY"
+			]
+		},
+		"contracts/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol": {
+			"keccak256": "0xf980daa263b661ab8ddee7d4fd833c7da7e7995e2c359ff1f17e67e4112f2236",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7448ab095d6940130bcf76ba47a2eab14148c83119523b93dd89f6d84edd6c02",
+				"dweb:/ipfs/QmawrZ4voKQjH3oomXT3Kuheb3Mnmo2VvVpxg8Ne5UJUrd"
+			]
+		},
+		"contracts/lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol": {
+			"keccak256": "0x6400c4bee15052e043e5d10315135972529bd1c8012f43da494dc6b4f4661058",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://da5d3d47d35af4373743a559ea4b9b7ecfe4bab6f0703f410c1e59959b7966ac",
+				"dweb:/ipfs/QmTHdoghh4WLu4yURjGEgRk162pcwwdsG52MPGa12GqnGR"
+			]
+		},
+		"contracts/src/drawTheChart/DrawTheChart.sol": {
+			"keccak256": "0xc29b9fe96f0f4bf78fe34d40420701efddb6790c729d7691e77428930ea150b5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6b9773646fea7cb8aad20e2487244c0af3e2edf26b97e06c765ae8bd311f092d",
+				"dweb:/ipfs/QmRxJuJ3x8nevcrNbCiZi6PwVEYtMDXFYNJ9pGgbSZNjkJ"
+			]
+		},
+		"contracts/src/drawTheChart/DtcClaimManager.sol": {
+			"keccak256": "0x244eac13daade8ebcee0b98eba21bf4b3766637cb10e4939a280a52f96fe0f7f",
+			"urls": [
+				"bzz-raw://ead8e488628be5e4f470a7a0b16220cbf9945a80a634e2d2dde760b5cc24f329",
+				"dweb:/ipfs/QmTrxxUdq74HoS4613YZPEa9LAS4K8CzMUxYPXgiV4ubFc"
+			]
+		},
+		"contracts/src/drawTheChart/DtcErrors.sol": {
+			"keccak256": "0x2359d668f633ab629ae3a5ce86fb64972d1b5cdb5408ebdbd60c26722992c817",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1d180417ac3cbabf56bd60ad69c104b6cce58feda8abeb626fde544074f7737b",
+				"dweb:/ipfs/QmQs9BZRrAkpjvkUyNoZbLpFWLYDP6vWnWSFqsHQiHfQvY"
+			]
+		},
+		"contracts/src/drawTheChart/DtcEvents.sol": {
+			"keccak256": "0xf17521549981f2eea10fb74dff5717459fa399599e48c6719d2235d8e02c45f1",
+			"urls": [
+				"bzz-raw://455bb66f1aac525197bbe060e84bb50926740a5c3ff72bb8b5c7901359ddaff8",
+				"dweb:/ipfs/QmSdkdxLfS7bjV4GMbqRb7FTwrDasY8oefq9Js13TCYmvp"
+			]
+		},
+		"contracts/src/drawTheChart/DtcGameManagement.sol": {
+			"keccak256": "0x730a397253ee93bc8c7a39c1bb3fcdc0fdca5b9b51f011622c29b23b1af6640b",
+			"urls": [
+				"bzz-raw://28bef2779c6352ea0102dc591ce1ea9bd4175a2e7b0842f8d11b0071f29f1ca5",
+				"dweb:/ipfs/QmdVRimQTQofo1Q7WRTCN8vtj3rzWxkiQG4MbnQRpc4pFL"
+			]
+		},
+		"contracts/src/drawTheChart/DtcMerkleVerifier.sol": {
+			"keccak256": "0x625593881ac605a4d1dfa28bcd9b5a5cedcd58043e8645e74b1757eb1c89bb09",
+			"urls": [
+				"bzz-raw://0ec42f36b42c1aa273d2e216f71c77dcb7937707627b5fff9cbb3d5a949f82b8",
+				"dweb:/ipfs/QmVsJoKhn9ASKtQcEgePQjfEQKyJ7c579FCtTUm2fKjjsR"
+			]
+		},
+		"contracts/src/drawTheChart/DtcUtils.sol": {
+			"keccak256": "0x51541bedaa955fc4977b598c698b2c7023ce471bd03ad700a426c868be725543",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://83599c25bc49c828febc18a93c8d707cc4ee2daf7c8708dc795d37873a9efa84",
+				"dweb:/ipfs/QmSNkjSbD79WhgLTGmbD8uQpEoauYEZb3AbjKAv5BVtm5H"
+			]
+		}
+	},
+	"version": 1
+}

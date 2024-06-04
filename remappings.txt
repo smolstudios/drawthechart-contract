@@ -1,0 +1,9 @@
+@WtchTwr/=src/WatchTower/
+@WtchTwrDefi/=src/DefiUtils/
+@WtchTwrTesting/=test/drawTheChart/
+@DrawTheChart/=src/DrawTheChart/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+ds-test/=lib/forge-std/lib/ds-test/src/
+forge-std/=lib/forge-std/src/
+murky/=lib/murky/
+openzeppelin-contracts/=lib/openzeppelin-contracts/

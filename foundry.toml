@@ -1,0 +1,24 @@
+[profile.default]
+src = 'src'
+script = 'script'
+test = 'test'
+out = 'out'
+libs = ['lib']
+cache_path = 'cache'
+auto_detect_solc = true
+
+remappings = [
+  '@WtchTwr/=/src/WatchTower',
+  '@WtchTwrDefi/=/src/DefiUtils',
+  '@WtchTwrTesting/=/test/drawTheChart',
+  '@DrawTheChart/=/src/drawTheChart',
+]
+
+fs_permissions = [{ access = "read-write", path = "./"}]
+
+gas_reports = ["DrawTheChart"]
+auto_detect_remappings = false
+
+
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
